@@ -1,0 +1,253 @@
+f_top= '     |       |    '
+f_mid= '  1  |   2   |  3 '
+f_low= '_____|_______|____'
+s_top= '     |       |    '
+s_mid= '  4  |   5   |  6 '
+s_low= '_____|_______|____'
+t_top= '     |       |    '
+t_mid= '  7  |   8   |  9 '
+t_low= '     |       |    '
+
+f_top_1= '     |       |    '
+f_mid_1= '     |       |    '
+f_low_1= '_____|_______|____'
+s_top_1= '     |       |    '
+s_mid_1= '     |       |    '
+s_low_1= '_____|_______|____'
+t_top_1= '     |       |    '
+t_mid_1= '     |       |    '
+t_low_1= '     |       |    '
+
+def print_options():
+    print(f_top)
+    print(f_mid)
+    print(f_low)
+    print(s_top)
+    print(s_mid)
+    print(s_low)
+    print(t_top)
+    print(t_mid)
+    print(t_low)
+    
+def print_game():
+    print(f_top_1)
+    print(f_mid_1)
+    print(f_low_1)
+    print(s_top_1)
+    print(s_mid_1)
+    print(s_low_1)
+    print(t_top_1)
+    print(t_mid_1)
+    print(t_low_1)
+    
+def print_every():
+    print('OPTIONS')    
+    print_options()
+    print('')
+    print('GAME')
+    print_game()
+    
+print('Hello players. We are going to play a round of Tic Tac Toe!')
+
+def player_one_name():
+    player_one=input("What is player one's name?: ")
+    
+    return player_one
+
+def player_two_name():
+    player_two=input("What is player two's name?: ")
+    
+    return player_two
+
+player_one=player_one_name()
+
+player_two=player_two_name()
+
+print(f"It is time for {player_one} to play against {player_two}")
+
+import random
+
+list = [player_one,player_two]
+rand = random.choice(list)
+print(f"It is {rand}'s turn")
+if rand == player_one:
+    other=player_two
+else:
+    other=player_one
+
+
+from IPython.display import clear_output
+print_options()
+option_list= ['1','2','3','4','5','6','7','8','9']
+condition=True
+while condition:
+    
+    while True:
+        if (f_mid_1[2]=='O' and f_mid_1[9]=='O' and f_mid_1[16]=='O') or (s_mid_1[2]=='O' and s_mid_1[9]=='O' and s_mid_1[16]=='O') or (t_mid_1[2]=='O' and t_mid_1[9]=='O' and t_mid_1[16]=='O') or (f_mid_1[2]=='O' and s_mid_1[2]=='O' and t_mid_1[2]=='O') or(f_mid_1[9]=='O' and s_mid_1[9]=='O' and t_mid_1[9]=='O') or (f_mid_1[16]=='O' and s_mid_1[16]=='O' and t_mid_1[16]=='O') or (f_mid_1[2]=='O' and s_mid_1[9]=='O' and t_mid_1[16]=='O') or (f_mid_1[16]=='O' and s_mid_1[9]=='O' and t_mid_1[2]=='O'):
+            print(f'{other} wins')
+            condition=False
+            break
+        if (f_mid_1[2]=='X' and f_mid_1[9]=='X' and f_mid_1[16]=='X') or (s_mid_1[2]=='X' and s_mid_1[9]=='X' and s_mid_1[16]=='X') or (t_mid_1[2]=='X' and t_mid_1[9]=='X' and t_mid_1[16]=='X') or (f_mid_1[2]=='X' and s_mid_1[2]=='X' and t_mid_1[2]=='X') or(f_mid_1[9]=='X' and s_mid_1[9]=='X' and t_mid_1[9]=='X') or (f_mid_1[16]=='X' and s_mid_1[16]=='X' and t_mid_1[16]=='X') or (f_mid_1[2]=='X' and s_mid_1[9]=='X' and t_mid_1[16]=='X') or (f_mid_1[16]=='X' and s_mid_1[9]=='X' and t_mid_1[2]=='X'):
+            print(f'{rand} wins')
+            condition=False
+            break
+        if len(option_list)==0:
+            print("It's a tie")
+            condition=False
+            break
+            
+            
+
+        player_choice=input(f'{rand}, pick a number between 1 and 9: ')
+        if player_choice in option_list:
+            player_choice = int(player_choice)
+            if player_choice == 1:
+                clear_output()
+                f_mid_1 = f_mid_1[:2] + 'X' + f_mid_1[2+1:]
+                option_list.remove('1')
+                print_every()
+                break
+            if player_choice == 2:
+                clear_output()
+                f_mid_1 = f_mid_1[:9] + 'X' + f_mid_1[9+1:]
+                option_list.remove('2')
+                print_every()
+                break
+            if player_choice == 3:
+                clear_output()
+                f_mid_1 = f_mid_1[:16] + 'X' + f_mid_1[16+1:]
+                option_list.remove('3')
+                print_every()
+                break
+
+            if player_choice == 4:
+                clear_output()
+                s_mid_1 = s_mid_1[:2] + 'X' + s_mid_1[2+1:]
+                option_list.remove('4')
+                print_every()
+                break
+
+            if player_choice == 5:
+                clear_output()
+                s_mid_1 = s_mid_1[:9] + 'X' + s_mid_1[9+1:]
+                option_list.remove('5')
+                print_every()
+                break
+
+            if player_choice == 6:
+                clear_output()
+                s_mid_1 = s_mid_1[:16] + 'X' + s_mid_1[16+1:]
+                option_list.remove('6')
+                print_every()
+                break
+
+            if player_choice == 7:
+                clear_output()
+                t_mid_1 = t_mid_1[:2] + 'X' + t_mid_1[2+1:]
+                option_list.remove('7')
+                print_every()
+                break
+
+            if player_choice == 8:
+                clear_output()
+                t_mid_1 = t_mid_1[:9] + 'X' + t_mid_1[9+1:]
+                option_list.remove('8')
+                print_every()
+                break
+
+            if player_choice == 9:
+                clear_output()
+                t_mid_1 = t_mid_1[:16] + 'X' + t_mid_1[16+1:]
+                option_list.remove('9')
+                print_every()
+                break
+                
+        else:
+            clear_output()
+            print('Pick a valid number or a position that has not been picked before')
+            print_every()
+            continue
+        
+    while True:
+        if (f_mid_1[2]=='O' and f_mid_1[9]=='O' and f_mid_1[16]=='O') or (s_mid_1[2]=='O' and s_mid_1[9]=='O' and s_mid_1[16]=='O') or (t_mid_1[2]=='O' and t_mid_1[9]=='O' and t_mid_1[16]=='O') or (f_mid_1[2]=='O' and s_mid_1[2]=='O' and t_mid_1[2]=='O') or(f_mid_1[9]=='O' and s_mid_1[9]=='O' and t_mid_1[9]=='O') or (f_mid_1[16]=='O' and s_mid_1[16]=='O' and t_mid_1[16]=='O') or (f_mid_1[2]=='O' and s_mid_1[9]=='O' and t_mid_1[16]=='O') or (f_mid_1[16]=='O' and s_mid_1[9]=='O' and t_mid_1[2]=='O'):
+            condition=False
+            break
+        if (f_mid_1[2]=='X' and f_mid_1[9]=='X' and f_mid_1[16]=='X') or (s_mid_1[2]=='X' and s_mid_1[9]=='X' and s_mid_1[16]=='X') or (t_mid_1[2]=='X' and t_mid_1[9]=='X' and t_mid_1[16]=='X') or (f_mid_1[2]=='X' and s_mid_1[2]=='X' and t_mid_1[2]=='X') or(f_mid_1[9]=='X' and s_mid_1[9]=='X' and t_mid_1[9]=='X') or (f_mid_1[16]=='X' and s_mid_1[16]=='X' and t_mid_1[16]=='X') or (f_mid_1[2]=='X' and s_mid_1[9]=='X' and t_mid_1[16]=='X') or (f_mid_1[16]=='X' and s_mid_1[9]=='X' and t_mid_1[2]=='X'):
+            print(f'{rand} wins')
+            condition=False
+            break
+        if len(option_list)==0:
+            print("It's a tie")
+            condition=False
+            break
+            
+
+        player_choice=input(f'{other}, pick a number between 1 and 9: ')
+        if player_choice in option_list:
+            player_choice = int(player_choice)
+            if player_choice == 1:
+                clear_output()
+                f_mid_1 = f_mid_1[:2] + 'O' + f_mid_1[2+1:]
+                option_list.remove('1')
+                print_every()
+                break
+            if player_choice == 2:
+                clear_output()
+                f_mid_1 = f_mid_1[:9] + 'O' + f_mid_1[9+1:]
+                option_list.remove('2')
+                print_every()
+                break
+            if player_choice == 3:
+                clear_output()
+                f_mid_1 = f_mid_1[:16] + 'O' + f_mid_1[16+1:]
+                option_list.remove('3')
+                print_every()
+                break
+
+            if player_choice == 4:
+                clear_output()
+                s_mid_1 = s_mid_1[:2] + 'O' + s_mid_1[2+1:]
+                option_list.remove('4')
+                print_every()
+                break
+
+            if player_choice == 5:
+                clear_output()
+                s_mid_1 = s_mid_1[:9] + 'O' + s_mid_1[9+1:]
+                option_list.remove('5')
+                print_every()
+                break
+
+            if player_choice == 6:
+                clear_output()
+                s_mid_1 = s_mid_1[:16] + 'O' + s_mid_1[16+1:]
+                option_list.remove('6')
+                print_every()
+                break
+
+            if player_choice == 7:
+                clear_output()
+                t_mid_1 = t_mid_1[:2] + 'O' + t_mid_1[2+1:]
+                option_list.remove('7')
+                print_every()
+                break
+
+            if player_choice == 8:
+                clear_output()
+                t_mid_1 = t_mid_1[:9] + 'O' + t_mid_1[9+1:]
+                option_list.remove('8')
+                print_every()
+                break
+
+            if player_choice == 9:
+                clear_output()
+                t_mid_1 = t_mid_1[:16] + 'O' + t_mid_1[16+1:]
+                option_list.remove('9')
+                print_every()
+                break
+            
+        else:
+            clear_output()
+            print('Pick a valid number or a position that has not been picked before')
+            print_every()
+            continue
